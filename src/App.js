@@ -6,13 +6,14 @@ import { expenseItems } from "./Data/expenses";
 import { useState } from "react";
 
 function App() {
-  const expensesList = expenseItems;
-  const [expenses, setExpenseItems] = useState(expenseItems);
+  let expensesList = expenseItems;
+  const [expenses, setExpenseItems] = useState(expensesList);
 
   const handleNewExpense = (newExpense) => {
-    expensesList.push(newExpense);
-    console.log("Updated Expense Items", expenseItems);
-    setExpenseItems(expensesList);
+    console.log("Updated Expense Items", expenses);
+    setExpenseItems((prevState) => {
+      return [newExpense, ...prevState];
+    });
   };
   return (
     <div className="App">
@@ -21,7 +22,7 @@ function App() {
         <p>Expense Tracker App</p>
       </header>
       <NewExpense onAddition={handleNewExpense} />
-      <Expenses items={expensesList} />
+      <Expenses items={expenses} />
       <footer className="App-footer">
         <p>Created By: Maverick</p>
         <p>© Copyright 2021. All Rights Reserved.</p>

@@ -47,7 +47,14 @@ function ExpenseForm(props) {
     //   expenseText: title,
     //   expenseCost: amount,
     // };
-    props.onSaveExpenseData(userInput);
+    const { title, amount } = userInput;
+    const newExpense = {
+      title,
+      amount,
+      date: new Date(userInput.date),
+    };
+
+    props.onSaveExpenseData(newExpense);
     //console.log("In ExpenseForm.js", userInput);
     setUserInput({ title: "", date: "", amount: "" });
     // setTitle("");
