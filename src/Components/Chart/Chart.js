@@ -1,5 +1,5 @@
 import React from "react";
-import "./Chart.css";
+import styles from "./Chart.module.css";
 import ChartBar from "./ChartBar";
 
 function Chart(props) {
@@ -19,7 +19,7 @@ function Chart(props) {
   //   };
 
   return (
-    <div className="chart">
+    <div className={styles.chart}>
       {props.chartData.map((i) => (
         <ChartBar
           key={i.label}

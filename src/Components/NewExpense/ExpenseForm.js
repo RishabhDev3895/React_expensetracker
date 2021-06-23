@@ -62,6 +62,10 @@ function ExpenseForm(props) {
     // setAmount("");
   };
 
+  const handleResetClick = () => {
+    props.onCancelClick();
+  };
+
   return (
     <Card className="expense">
       <form onSubmit={handleSubmit}>
@@ -100,6 +104,13 @@ function ExpenseForm(props) {
         <div>
           <button className="input expenseCost" type="submit">
             Add Expense
+          </button>
+          <button
+            className="input expenseCost"
+            type="reset"
+            onClick={handleResetClick}
+          >
+            Cancel
           </button>
         </div>
       </form>
